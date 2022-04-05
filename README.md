@@ -15,3 +15,8 @@ Just copy the 'vector' class from the file, paste it into your code and use the 
 
 Использование:
 Просто скопируйте класс 'vector' из файла, вставьте в свой код и используйте функции и процедуры из 'public' в этом классе.
+
+
+Author: Artemij Kazakov / Kirat
+at 5:19, in 05.04.2022
+I got tired and went to bed at 8:07
