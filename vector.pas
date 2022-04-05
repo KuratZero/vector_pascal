@@ -26,6 +26,12 @@ type Vector<T> = class
       realSize := 1;
       arr := new T[1];
     end;
+    constructor Create(count: Integer);
+    begin
+      emgSize := 0;
+      realSize := count;
+      arr := new T[count];
+    end;
     function size(): Integer;
     begin
       size := emgSize;
@@ -56,21 +62,6 @@ type Vector<T> = class
         arr[i] := arr[i - 1];
       arr[index] := val;
       inc(emgSize);
-    end;
-    procedure resize(size: Integer);
-    begin
-      if(size = 0) then begin
-        realSize := 1;
-        arr := new T[1];
-      end else begin
-        realSize := size;
-        var tmpArr: array of T;
-        tmpArr := arr;
-        arr := new T[size];
-        for var i := 0 to min(emgSize - 1, size - 1) do
-          arr[i] := tmpArr[i];
-      end;
-      emgSize := size;
     end;
 end;
 
