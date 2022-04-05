@@ -1,7 +1,8 @@
-﻿program tvector;
+program tvector;
 {
   Author: Artemij Kazakov / Kirat
   at 5:19, in 05.04.2022
+  upd: 7:09
 }
 type Vector<T> = class
   private
@@ -63,6 +64,17 @@ type Vector<T> = class
       arr[index] := val;
       inc(emgSize);
     end;
+    procedure clear();
+    begin
+      emgSize := 0;
+    end;
+    procedure reserve(size: Integer);
+    //not safe data
+    begin
+      emgSize := 0;
+      realSize := size;
+      arr := new T[size];
+    end;
 end;
 
 
@@ -105,4 +117,15 @@ begin
   for var i := 0 to v.size() - 1 do begin
     writeln('v[', i, '] = ', v.get(i));
   end;
+  //Example clear & reserve
+  writeln;
+  writeln('Example clear & reserve');
+  writeln('size of vector = ', v.size());
+  writeln('real size of vector = ', v.realSize);
+  v.clear();
+  writeln('size of vector = ', v.size());
+  writeln('real size of vector = ', v.realSize);
+  v.reserve(1000);
+  writeln('size of vector = ', v.size());
+  writeln('real size of vector = ', v.realSize);
 end.
