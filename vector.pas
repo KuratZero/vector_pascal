@@ -67,7 +67,7 @@ type Vector<T> = class
         var tmpArr: array of T;
         tmpArr := arr;
         arr := new T[size];
-        for var i := 0 to emgSize - 1 do
+        for var i := 0 to min(emgSize - 1, size - 1) do
           arr[i] := tmpArr[i];
       end;
       emgSize := size;
