@@ -57,6 +57,21 @@ type Vector<T> = class
       arr[index] := val;
       inc(emgSize);
     end;
+    procedure resize(size: Integer);
+    begin
+      if(size = 0) then begin
+        realSize := 1;
+        arr := new T[1];
+      end else begin
+        realSize := size;
+        var tmpArr: array of T;
+        tmpArr := arr;
+        arr := new T[size];
+        for var i := 0 to emgSize - 1 do
+          arr[i] := tmpArr[i];
+      end;
+      emgSize := size;
+    end;
 end;
 
 
