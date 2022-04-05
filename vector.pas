@@ -36,6 +36,10 @@ type Vector<T> = class
     begin
       get := arr[index];
     end;
+    function getPointer(index: Integer): ^T;
+    begin
+      getPointer := @arr[index];
+    end;
     procedure set_val(index: Integer; val: T);
     begin
       arr[index] := val;
@@ -90,6 +94,15 @@ begin
   //Example get
   writeln;
   writeln('Example get');
+  for var i := 0 to v.size() - 1 do begin
+    writeln('v[', i, '] = ', v.get(i));
+  end;
+  //Example getPointer and change
+  writeln;
+  writeln('Example getPointer and change');
+  v.getPointer(0)^ := 0;
+  v.getPointer(4)^ := 0;
+  v.getPointer(8)^ := 0;
   for var i := 0 to v.size() - 1 do begin
     writeln('v[', i, '] = ', v.get(i));
   end;
