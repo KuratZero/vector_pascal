@@ -1,4 +1,4 @@
-# vetor_pascal
+# veсtor_pascal
 Implementation of the 'vector' structure (from C++) in the Pascal programming language. 
 Made for fun, nostalgia and memories)
 
