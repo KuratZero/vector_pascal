@@ -2,6 +2,7 @@ program tvector;
 {
   Author: Artemij Kazakov / Kirat
   at 5:19, in 05.04.2022
+  I got tired and went to bed at 8:07
 }
 type Vector<T> = class
   private
