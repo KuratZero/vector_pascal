@@ -74,11 +74,24 @@ type Vector<T> = class
       emgSize := 0;
     end;
     procedure reserve(size: Integer);
-    //not safe data
+    //reload data
     begin
       emgSize := 0;
       realSize := size;
       arr := new T[size];
+    end;
+    procedure resize(size: Integer);
+    //with safe data
+    begin
+      if(size >= realSize) then begin
+        realSize := size;
+        var tmpArr: array of T;
+        tmpArr := arr;
+        arr := new T[size];
+        for var i := 0 to emgSize - 1 do
+          arr[i] := tmpArr[i];
+      end;
+      emgSize := size;
     end;
 end;
 
@@ -149,6 +162,18 @@ begin
   writeln('size of vector = ', v.size());
   writeln('real size of vector = ', v.realSize);
   v.reserve(1000);
+  writeln('size of vector = ', v.size());
+  writeln('real size of vector = ', v.realSize);
+  //Example resize
+  writeln;
+  writeln('Example resize');
+  v.resize(10);
+  writeln('size of vector = ', v.size());
+  writeln('real size of vector = ', v.realSize);
+  for var i := 0 to v.size() - 1 do begin
+    writeln('v[', i, '] = ', v.get(i));
+  end;
+  v.resize(2000);
   writeln('size of vector = ', v.size());
   writeln('real size of vector = ', v.realSize);
 end.
